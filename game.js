@@ -6,9 +6,9 @@ export const game = {
     currentPlayer: 'X',
     gameActive: true,
     winningCombinations: [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6]             // Diagonals
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+        [0, 4, 8], [2, 4, 6]             
     ],
     winner: null
 };
@@ -20,14 +20,13 @@ export function resetGame() {
     game.currentPlayer = 'X';
     game.gameActive = true;
     game.winner = null;
-    return true; // Return true to signal success to the UI
+    return true; 
 }
 
 export function checkStatus() {
     for (let i = 0; i < game.winningCombinations.length; i++) {
         const [a, b, c] = game.winningCombinations[i];
         if (game.board[a] && game.board[a] === game.board[b] && game.board[a] === game.board[c]) {
-            // WINNER FOUND
             game.gameActive = false;
             game.winner = game.currentPlayer;
             return 'WIN';
@@ -47,7 +46,7 @@ export function checkStatus() {
 export function makeMove(index) {
     // 1. Validation
     if (!game.gameActive || game.board[index] !== '') {
-        return false; // Invalid move
+        return false; 
     }
 
     // 2. Update Model
