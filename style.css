@@ -7,19 +7,17 @@ body {
 }
 
 #board {
-    /* Use CSS Grid to create the 3x3 layout */
     display: grid;
     grid-template-columns: repeat(3, 100px); 
     grid-template-rows: repeat(3, 100px);
     gap: 0;
-    width: 300px; /* 3 * 100px cells */
+    width: 300px;
     height: 300px;
     margin: 20px auto;
     border: 2px solid #333;
 }
 
 .square {
-    /* Center the X/O inside the cell */
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -28,14 +26,11 @@ body {
     cursor: pointer;
     background-color: #fff;
     
-    /* Create the internal grid lines using borders */
     border: 1px solid #aaa;
-    /* Optional: Remove the top/left border of the board for a cleaner look */
     border-top: none; 
     border-left: none;
 }
 
-/* Fix borders for the top and left edges */
 .square:nth-child(1), .square:nth-child(2), .square:nth-child(3) { border-top: 1px solid #aaa; }
 .square:nth-child(3n + 1) { border-left: 1px solid #aaa; } 
 
